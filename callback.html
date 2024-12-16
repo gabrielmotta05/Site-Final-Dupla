@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Callback</title>
+</head>
+<body>
+    <script>
+        const hash = window.location.hash; // Obter o hash da URL
+        if (hash.includes('access_token')) {
+            const params = new URLSearchParams(hash.substring(1)); // Remove o "#"
+            const accessToken = params.get('access_token'); // Extrai o token
+            const expiresIn = params.get('expires_in'); // Tempo de expiração
+
+            // Salvar no localStorage
+            localStorage.setItem('access_token', accessToken);
+            const expirationTime = new Date().getTime() + expiresIn * 1000;
+            localStorage.setItem('token_expiration', expirationTime);
+
+            // Redirecionar de volta ao index.html
+            window.location.href = 'index.html';
+        } else {
+            console.error('Token não encontrado no hash da URL.');
+        }
+    </script>
+</body>
+</html>

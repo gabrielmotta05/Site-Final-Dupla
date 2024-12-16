@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora do Amor</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Calculadora do Amor</h1>
+        <label for="name1">Seu Nome:</label>
+        <input type="text" id="name1" placeholder="Digite seu nome" required>
+
+        <label for="name2">Nome da Outra Pessoa:</label>
+        <input type="text" id="name2" placeholder="Digite o nome da outra pessoa" required>
+
+        <button onclick="calcularCompatibilidade()">Calcular Compatibilidade</button>
+
+        <div id="result" class="result hidden">
+            <p id="compatibilidade"></p>
+            <p id="frase"></p>
+            <img id="imagem" alt="Imagem do casal" class="hidden">
+        </div>
+
+        <button id="try-again" class="hidden" onclick="tentarNovamente()">Tentar Novamente</button>
+    </div>
+    <button id="login-spotify" onclick="autenticarSpotify()">Login com Spotify</button>
+
+
+    <div id="hearts-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
